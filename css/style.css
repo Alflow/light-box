@@ -1,15 +1,5 @@
 @charset "UTF-8";
-/*
-
-  Con este reset vamos a resolver:
-    👉 Unificar el uso de Custom Properties
-    👉 Problemas de box-model más generales
-    👉 Problemas con imagenes, vídeos e iconos svg
-    👉 Problemas con tipografías y etiquetas input en formularios
-    👉 Unificar la tipografía de todas las etiquetas de una web
-
-*/
-/* Aquí definimos las Custom properties */
+/* Custom properties */
 :root {
   --negro: #393939;
   /* Tipografía */
@@ -23,7 +13,7 @@
     --negro: #ececec;
   }
 }
-/* Opcional */
+
 /* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
 /* Opcional */
 /* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
@@ -186,4 +176,79 @@ body {
   -webkit-font-smoothing: antialiased;
   /* opcional */
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e0e0e0;
+}
+
+.grid {
+  width: 90%;
+  max-width: 56.25rem;
+
+  margin: 2rem auto;
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  gap: 1rem;
+}
+
+.grid .img {
+  background-color: #e9dcbe;
+  box-shadow: .5rem .5rem 2rem #bebebe, -0.5rem -0.5rem 2rem #ffffff;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.grid .img:hover {
+    transform: scale(.95);
+}
+.grid .img:active {
+    transform: scale(1.1);
+}
+
+.lightbox{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.075);
+    backdrop-filter: blur(2rem);
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.lightbox.isActive{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox .close{
+    width: 2rem;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5 ease;
+}
+.lightbox .close:hover {
+    transform: scale(0.95);
+}
+.lightbox .close:active {
+    transform: scale(1.1);
+}
+
+.lightbox .svg{}
+
+.lightbox .big-img{
+    width: 90%;
+    max-width: 900px;
+    height: 80vh;
+    box-shadow: 0 0 1rem 0 rgba(0,0,0,.4);
 }
