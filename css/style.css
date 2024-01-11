@@ -177,6 +177,11 @@ body {
   /* opcional */
   -moz-osx-font-smoothing: grayscale;
   background-color: #e0e0e0;
+
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid {
@@ -187,7 +192,7 @@ body {
   padding: 1rem;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 2fr));
   gap: 1rem;
 }
 
