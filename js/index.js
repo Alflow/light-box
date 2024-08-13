@@ -1,33 +1,35 @@
 'use strict';
 
-//const and vars
+class TinyLightbox {
+  constructor() {
+    this.lightbox = document.querySelector('#tlb-lightbox');
+    this.bigImg = this.lightbox.querySelector('.tlb-lightbox__big-img');
+    this.closeButton = this.lightbox.querySelector('.tlb-lightbox__close');
 
-const images = document.querySelectorAll(`.img`);
-const lightbox = document.querySelector(`.lightbox`);
-const big = document.querySelector(`.big-img`);
-const closeButton = document.querySelector(`.close`);
+    this.closeButton.addEventListener('click', () => this.close());
+    this.lightbox.addEventListener('click', (event) => {
+      if (event.target !== this.bigImg && event.target !== this.closeButton) {
+        this.close();
+      }
+    });
+  }
 
+  open(src) {
+    this.bigImg.src = src;
+    this.lightbox.classList.add('tlb-is-active');
+  }
 
-// functions
-const closeBtnHandler = () => lightbox.classList.remove(`isActive`);
+  close() {
+    this.lightbox.classList.remove('tlb-is-active');
+  }
 
-const imagesHandler = (index) =>{
-    lightbox.classList.add(`isActive`);
-    big.src = images[index].src;
+  attach(selector) {
+    document.querySelectorAll(selector).forEach(img => {
+      img.addEventListener('click', () => this.open(img.src));
+    });
+  }
 }
 
-
-
-
-//When clicked on .img
-    //add class "isActive" to .lightbox
-    //add src attribute to .big from the .img src attribute
-images.forEach((eachImg, index)=>{
-    images[index].addEventListener(`pointerdown`,()=>{
-     imagesHandler(index);
-    })
-})
-
-
-//When clicked on close X
-closeButton.addEventListener(`click`, closeBtnHandler );
+// Uso de la librería
+const tlb = new TinyLightbox();
+tlb.attach('.tlb-img');  // Asumiendo que las imágenes tienen la clase .tlb-img

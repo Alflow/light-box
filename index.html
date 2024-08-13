@@ -7,29 +7,29 @@
     <title>Lightbox by Alfredo Alberruche</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     <script defer src="js/index.js"></script>
 </head>
 
 <body>
     <h1>Lightbox</h1>
     <div class="grid">
-        <img src="assets/plastic-textures-01.jpg" alt="imagen plastic 1" class="img">
-        <img src="assets/plastic-textures-02.jpg" alt="imagen plastic 1" class="img">
-        <img src="assets/plastic-textures-03.jpg" alt="imagen plastic 1" class="img">
-        <img src="assets/plastic-textures-04.jpg" alt="imagen plastic 1" class="img">
+        <img src="assets/plastic-textures-01.jpg" alt="imagen plastic 1" class="tlb-img">
+        <img src="assets/plastic-textures-02.jpg" alt="imagen plastic 1" class="tlb-img">
+        <img src="assets/plastic-textures-03.jpg" alt="imagen plastic 1" class="tlb-img">
+        <img src="assets/plastic-textures-04.jpg" alt="imagen plastic 1" class="tlb-img">
     </div>
+    
 
-    <div class="lightbox">
-        <div class="close">
-            <svg class="svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                <path
-                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-            </svg>
+    <div class="tlb-lightbox" id="tlb-lightbox">
+        <div class="tlb-lightbox__img-container">
+          <div class="tlb-lightbox__close" id="tlb-close">X</div>
+          <img class="tlb-lightbox__big-img" src="assets/plastic-textures-01.jpg" alt="Imagen ampliada">
         </div>
-        <img class="big-img" src="assets/plastic-textures-01.jpg" alt="Imagen ampliada">
-    </div>
+      </div>
+      
+    
 </body>
 
 </html>

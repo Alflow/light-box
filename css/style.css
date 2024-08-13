@@ -2,57 +2,47 @@
 /* Custom properties */
 :root {
   --negro: #393939;
-  /* Tipografía */
   --tipo-principal: Helvetica, Arial, sans-serif;
   --tipo-secundaria: Verdana;
 }
 
-/* Las adaptamos al modo oscuro */
+/* Adaptación al modo oscuro */
 @media (prefers-color-scheme: dark) {
   :root {
     --negro: #ececec;
   }
 }
 
-/* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
-/* Opcional */
-/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+/* Reducción de movimiento */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    -webkit-animation: none !important;
+  html {
     animation: none !important;
-    -webkit-transition: none !important;
     transition: none !important;
   }
 }
-/* Reseteamos los margin y paddings de todas las etiquetas */
+
+/* Reseteo global */
 * {
   margin: 0;
   padding: 0;
   border: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: baseline;
 }
 
-/* Evitamos problemas con las imagenes */
+/* Estilos globales de elementos */
 img,
 picture,
 video,
 iframe,
 figure {
   max-width: 100%;
-  width: 100%;
   display: block;
-  /* opcional */
-  -o-object-fit: cover;
   object-fit: cover;
-  /* opcional */
-  -o-object-position: center center;
   object-position: center center;
 }
 
-/* Reseteamos los enlaces para funcionar como cajas... */
+/* Reseteo de enlaces */
 a {
   display: block;
   text-decoration: none;
@@ -60,37 +50,23 @@ a {
   font-size: inherit;
 }
 
-/* ... excepto los que se encuentran en párrafos */
+/* Enlaces dentro de párrafos */
 p a {
   display: inline;
 }
 
-/* Quitamos los puntos de los <li> */
+/* Estilos de listas */
 li {
   list-style-type: none;
 }
 
-/* Configuramos anclas suaves */
+/* Anclas suaves */
 html {
   scroll-behavior: smooth;
 }
 
-/* Desactivamos estilos por defecto de las principales etiquetas de texto */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-a,
-strong,
-blockquote,
-i,
-b,
-u,
-em {
+/* Estilos de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
   font-size: 1em;
   font-weight: inherit;
   font-style: inherit;
@@ -98,101 +74,77 @@ em {
   color: inherit;
 }
 
-/* Evitamos problemas con los pseudoelementos de quotes */
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+/* Estilos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
   content: "";
   content: none;
 }
 
-/* Configuramos el texto que seleccionamos */
+/* Selección de texto */
 ::-moz-selection {
   background-color: var(--negro);
-  color: var(--blanco);
+  color: white;
 }
 ::selection {
   background-color: var(--negro);
-  color: var(--blanco);
+  color: white;
 }
 
-/* Nivelamos problemas de tipografías y colocación de formularios */
-form,
-input,
-textarea,
-select,
-button,
-label {
+/* Formatos de formulario */
+form, input, textarea, select, button, label {
   font-family: inherit;
   font-size: inherit;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
   hyphens: auto;
   background-color: transparent;
   color: inherit;
   display: block;
-  /* opcional */
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 }
 
-/* Reseteamos las tablas */
-table,
-tr,
-td {
+/* Estilos de tablas */
+table, tr, td {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* Evitamos problemas con los SVG */
+/* Estilos de SVG */
 svg {
   width: 100%;
   display: block;
   fill: currentColor;
 }
 
-
-/* Configuramos la tipografía para toda la web */
+/* Tipografía global */
 body {
   min-height: 100vh;
   font-size: 100%;
   font-family: var(--tipo-principal);
-  color: white;  /* opcional */
+  color: white;
   line-height: 1.4em;
-  /* opcional */
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
   hyphens: auto;
-  /* opcional */
-  font-smooth: always;
-  /* opcional */
   -webkit-font-smoothing: antialiased;
-  /* opcional */
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
 
   display: flex;
   flex-direction: column;
-  /* flex-flow: row; */
   justify-content: center;
   align-items: center;
 }
 
-h1{
+h1 {
   font-family: 'Roboto Mono', monospace;
   width: 100%;
   font-size: 2rem;
   text-align: center;
 }
+
+/* Estilo de grid */
 .grid {
   width: 90%;
   max-width: 56.25rem;
-
   margin: 2rem auto;
   padding: 1rem;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12.5rem, 2fr));
   gap: 1rem;
@@ -200,62 +152,92 @@ h1{
 
 .grid .img {
   background-color: #e9dcbe;
-  box-shadow: .5rem .5rem 2rem #181818, -0.5rem -0.5rem 2rem #55555515;
+  box-shadow: 0.5rem 0.5rem 2rem #181818, -0.5rem -0.5rem 2rem #55555515;
   cursor: pointer;
   transition: all 0.5s;
 }
+
 .grid .img:hover {
-    transform: scale(.95);
+  transform: scale(0.95);
 }
+
 .grid .img:active {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-.lightbox{
+/* Lightbox */
+.tlb-lightbox {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.075);
+  backdrop-filter: blur(4rem);
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tlb-lightbox.tlb-is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tlb-lightbox__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tlb-lightbox__close:hover {
+  transform: scale(0.95);
+}
+
+.tlb-lightbox__close:active {
+  transform: scale(1.1);
+}
+
+.tlb-lightbox__img-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 80vh;
+  box-shadow: 0 0 1rem 0 rgba(143, 142, 142, 0.623);
+}
+
+.tlb-lightbox__big-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 750px) {
+  .tlb-lightbox {
+    padding: 1rem;
+  }
+  .tlb-lightbox__img-container {
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.075);
-    backdrop-filter: blur(2rem);
-    
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    opacity: 0;
-    pointer-events: none;
-}
-
-
-.lightbox.isActive{
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.lightbox .close{
-    width: 2rem;
-    background-color: red;
-    color: white;
-    cursor: pointer;
-    transition: all 0.5 ease;
-}
-.lightbox .close:hover {
-    transform: scale(0.95);
-}
-.lightbox .close:active {
-    transform: scale(1.1);
-}
-
-
-
-.lightbox .big-img{
-    width: 90%;
-    max-width: 900px;
-    height: 80vh;
-    box-shadow: 0 0 1rem 0 rgba(143, 142, 142, 0.623);
+    height: auto;
+  }
+  .tlb-lightbox__close {
+    top: 0.25rem;
+    right: 0.25rem;
+  }
 }
