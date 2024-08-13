@@ -135,7 +135,8 @@ body {
 h1 {
   font-family: 'Roboto Mono', monospace;
   width: 100%;
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-bottom: 8px;
   text-align: center;
 }
 
@@ -228,6 +229,31 @@ h1 {
   object-position: center;
 }
 
+.tlb-img:hover{
+  cursor: pointer;
+}
+
+.github-link{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: solid 1px #fafafa;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: .3s ease-in-out;
+  position: fixed;
+  bottom: 20%;
+}
+.github-link i{
+  font-size: 2rem;
+}
+.github-link:hover{
+  box-shadow: 2px 2px 1px #fafafa;
+}
+.credits{
+  margin-top: 12px;
+}
+
 @media (max-width: 750px) {
   .tlb-lightbox {
     padding: 1rem;
@@ -241,3 +267,4 @@ h1 {
     right: 0.25rem;
   }
 }
+

@@ -4,32 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lightbox by Alfredo Alberruche</title>
+    <title>Lightbox by Alflow</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
-    <script defer src="js/index.js"></script>
+    
 </head>
 
 <body>
     <h1>Lightbox</h1>
+    <p class="credits">Designed by Alflow</p>
     <div class="grid">
         <img src="assets/plastic-textures-01.jpg" alt="imagen plastic 1" class="tlb-img">
         <img src="assets/plastic-textures-02.jpg" alt="imagen plastic 1" class="tlb-img">
         <img src="assets/plastic-textures-03.jpg" alt="imagen plastic 1" class="tlb-img">
         <img src="assets/plastic-textures-04.jpg" alt="imagen plastic 1" class="tlb-img">
     </div>
-    
+
 
     <div class="tlb-lightbox" id="tlb-lightbox">
         <div class="tlb-lightbox__img-container">
-          <div class="tlb-lightbox__close" id="tlb-close">X</div>
-          <img class="tlb-lightbox__big-img" src="assets/plastic-textures-01.jpg" alt="Imagen ampliada">
+            <div class="tlb-lightbox__close" id="tlb-close">X</div>
+            <img class="tlb-lightbox__big-img" src="assets/plastic-textures-01.jpg" alt="Imagen ampliada">
         </div>
-      </div>
-      
+    </div>
     
+
+    <a href="https://github.com/Alflow/tinyLightbox?tab=readme-ov-file" class="github-link">
+        <i class="fa-brands fa-github"></i>
+        Download the library!
+    </a>
+    <script type="module">
+        import { TinyLightbox } from './js/index.js';  
+
+        const tlb = new TinyLightbox();
+        tlb.attach('.tlb-img');
+    </script>
 </body>
 
 </html>
