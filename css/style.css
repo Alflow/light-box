@@ -268,3 +268,15 @@ h1 {
   }
 }
 
+
+@media (max-width: 540px) {
+  h1{
+    margin-top: 2rem;
+  }
+  .github-link{
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+}
+
